@@ -15,7 +15,11 @@ compose-plugin = "1.6.0"
 junit = "4.13.2"
 kotlin = "1.9.22"
 
-
+coroutinesVersion = "1.7.3"
+kotlinxDatetime = "0.5.0"
+ktorVersion = "2.3.6"
+multiplatformMarkdownRenderer = "0.10.0"
+mvvmCore = "0.16.1"
 vanniktech = "0.28.0"
 nmcp = "0.0.4"
 dokka = "1.9.20"
@@ -38,7 +42,21 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 
+
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesVersion" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorVersion" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorVersion" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorVersion" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorVersion" }
+multiplatform-markdown-renderer = { module = "com.mikepenz:multiplatform-markdown-renderer", version.ref = "multiplatformMarkdownRenderer" }
+mvvm-compose = { module = "dev.icerock.moko:mvvm-compose", version.ref = "mvvmCore" }
+mvvm-core = { module = "dev.icerock.moko:mvvm-core", version.ref = "mvvmCore" }
 generativeai = { module = "com.google.ai.client.generativeai:generativeai", version.ref = "generativeai" }
+
+
+
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -22,19 +22,6 @@ data class Request(
             return this
         }
 
-        fun addImage(image: ByteArray, mimeType: String = "image/png"): RequestBuilder {
-            val imagePart = RequestPart(requestInlineData = RequestInlineData(mimeType, image.encodeBase64()))
-            addPart(imagePart)
-            return this
-        }
-
-        fun addImages(images: List<ByteArray>, mimeType: String = "image/png"): RequestBuilder {
-            images.forEach {
-                val part = RequestPart(requestInlineData = RequestInlineData(mimeType, it.encodeBase64()))
-                addPart(part)
-            }
-            return this
-        }
 
         fun build(role: String? = null): Request {
             return Request(

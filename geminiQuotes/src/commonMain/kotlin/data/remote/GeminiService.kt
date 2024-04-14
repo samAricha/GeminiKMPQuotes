@@ -62,12 +62,6 @@ class GeminiService {
         }
     }
 
-    suspend fun generateContentWithMedia(prompt: String, images: List<ByteArray>): Response {
-        return makeApiRequest("$baseUrl/gemini-pro-vision:generateContent?key=$apiKey") {
-            addText(prompt)
-            addImages(images)
-        }
-    }
 
     private suspend fun makeApiRequest(
         url: String,

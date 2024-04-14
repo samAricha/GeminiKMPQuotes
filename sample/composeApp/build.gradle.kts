@@ -1,9 +1,12 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.buildKonfig) apply true
+
 }
 
 kotlin {
@@ -31,6 +34,14 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+
+            implementation(libs.mvvm.core)
+            implementation(libs.mvvm.compose)
+
+
+
+            implementation(project(":geminiQuotes"))
+
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -81,5 +92,20 @@ compose.desktop {
             packageName = "org.teka.gemini_ai_kmp_quotes_library"
             packageVersion = "1.0.0"
         }
+    }
+}
+
+buildkonfig {
+    packageName = "org.teka.gemini_ai_cmp_chat_library"
+
+    defaultConfigs {
+        val apiKey: String = gradleLocalProperties(rootDir).getProperty("GEMINI_API_KEY")
+
+        require(apiKey.isNotEmpty()) {
+            "Register your api key from developer and place it in local.properties as `GEMINI_API_KEY`"
+        }
+
+        buildConfigField(com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING, "GEMINI_API_KEY", apiKey)
+
     }
 }
